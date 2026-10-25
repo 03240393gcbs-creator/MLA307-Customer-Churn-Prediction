@@ -1,0 +1,33 @@
+{
+  "observation_cutoff": "2018-11-03",
+  "observation_days": 30,
+  "dataset_end": "2018-12-03 01:11:16",
+  "eligible_customers": 182,
+  "future_churners": 16,
+  "non_churners_in_observed_period": 166,
+  "train_customers": 127,
+  "validation_customers": 27,
+  "test_customers": 28,
+  "train_churners": 11,
+  "validation_churners": 2,
+  "test_churners": 3,
+  "features": [
+    "event_count",
+    "sessions",
+    "songs",
+    "minutes_listened",
+    "thumbs_up",
+    "thumbs_down",
+    "add_to_playlist",
+    "add_friend",
+    "roll_advert",
+    "downgrade",
+    "upgrade",
+    "home",
+    "errors"
+  ],
+  "class_weights": {
+    "0": 0.5474137931034483,
+    "1": 5.7727272727272725
+  }
+}

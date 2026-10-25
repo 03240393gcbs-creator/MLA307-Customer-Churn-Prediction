@@ -1,11 +1,11 @@
 Saved GRU/LSTM sequence model
-Threshold selected on validation: 0.50
+Threshold selected on validation: 0.95
 
               precision    recall  f1-score   support
 
- Not churned       0.88      0.81      0.84        26
-     Churned       0.50      0.62      0.56         8
+ Not churned       0.88      0.88      0.88        25
+     Churned       0.00      0.00      0.00         3
 
-    accuracy                           0.76        34
-   macro avg       0.69      0.72      0.70        34
-weighted avg       0.79      0.76      0.77        34
+    accuracy                           0.79        28
+   macro avg       0.44      0.44      0.44        28
+weighted avg       0.79      0.79      0.79        28
