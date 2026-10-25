@@ -7,7 +7,9 @@ from sklearn.model_selection import StratifiedKFold, train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
 
-OUT = "/Users/jigme/Downloads/member1_sparkify_outputs/member2_outputs"
+from pathlib import Path
+
+OUT = str(Path(__file__).resolve().parent / "model_results")
 d = np.load(f"{OUT}/sequence_data_v2.npz", allow_pickle=True)
 X = np.concatenate([d["X_train"], d["X_val"]]); y = np.concatenate([d["y_train"], d["y_val"]])
 cw = {int(k): v for k, v in json.load(open(f"{OUT}/class_weights_v2.json")).items()}

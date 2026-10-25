@@ -16,8 +16,12 @@ def set_seed(s=SEED):
     random.seed(s); np.random.seed(s); tf.random.set_seed(s)
 set_seed()
 
-IN = "/Users/jigme/Downloads/member1_sparkify_outputs/member1_outputs"
-OUT = "/Users/jigme/Downloads/member1_sparkify_outputs/member2_outputs"
+from pathlib import Path
+
+BASE = Path(__file__).resolve().parent
+IN = BASE / "data_preparation"
+OUT = BASE / "model_results"
+OUT.mkdir(parents=True, exist_ok=True)
 os.makedirs(OUT, exist_ok=True)
 
 d = np.load(f"{OUT}/sequence_data_v2.npz", allow_pickle=True)

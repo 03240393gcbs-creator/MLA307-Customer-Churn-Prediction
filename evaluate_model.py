@@ -26,7 +26,7 @@ from sklearn.metrics import (
 warnings.filterwarnings("ignore")
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(BASE, "member2_outputs")
+OUT = os.path.join(BASE, "model_results")
 
 DATA_PATH = os.path.join(OUT, "sequence_data_v2.npz")
 WEIGHTS_PATH = os.path.join(OUT, "class_weights_v2.json")
@@ -44,7 +44,7 @@ if not os.path.exists(DATA_PATH):
 
 if not os.path.exists(MODEL_PATH):
     raise FileNotFoundError(
-        f"Missing {MODEL_PATH}. Run model.py first to train and save the model."
+        f"Missing {MODEL_PATH}. Run train_model.py first to train and save the model."
     )
 
 data = np.load(DATA_PATH, allow_pickle=True)

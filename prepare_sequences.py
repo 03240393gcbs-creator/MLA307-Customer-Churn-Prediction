@@ -3,9 +3,16 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import roc_auc_score
 from pathlib import Path
 
-BASE = Path("/Users/jigme/Downloads/member1_sparkify_outputs")
-IN = BASE / "member1_outputs"
-OUT = BASE / "member2_outputs"; OUT.mkdir(parents=True, exist_ok=True)
+# Project folder: customer-churn-prediction
+BASE = Path(__file__).resolve().parent
+
+# Member 1's prepared data
+IN = BASE / "data_preparation"
+
+# Member 2's output folder
+OUT = BASE / "model_results"
+OUT.mkdir(parents=True, exist_ok=True)
+
 WINDOW, GAP = 30, 1
 
 old = np.load(IN / "sequence_data.npz", allow_pickle=True)
