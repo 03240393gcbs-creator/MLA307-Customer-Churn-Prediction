@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+.env
+mini_sparkify_event_data.json
+mini_sparkify_event_data.json

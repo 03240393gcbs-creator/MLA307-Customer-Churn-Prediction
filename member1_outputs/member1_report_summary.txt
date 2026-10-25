@@ -1,0 +1,25 @@
+MEMBER 1 – DATASET AND PREPARATION SUMMARY
+
+Dataset file: mini_sparkify_event_data.json
+Dataset source: Udacity Sparkify event-log dataset (the supplied mini Sparkify sample).
+Raw records: 286,500
+Records after excluding rows without a user ID: 278,154
+Number of original columns: 18
+Number of customers with a user ID: 225
+Date range: 2018-10-01 00:01:57 to 2018-12-03 01:11:16
+Exact duplicate rows: 0
+Rows with empty user ID excluded: 8,346
+Churned customers: 52
+Non-churned customers: 173
+Target variable: churn (1 = a "Cancellation Confirmation" event; 0 = no such event in the supplied data).
+Sequence: 30 daily time steps per customer, oldest day first and cutoff day last.
+Features: event_count, sessions, songs, minutes_listened, thumbs_up, thumbs_down, add_to_playlist, add_friend, roll_advert, downgrade, upgrade, home, errors
+Preparation: removed rows without user IDs; converted millisecond timestamps to dates; aggregated events by customer/day; created fixed-length sequences; represented days with no recorded activity using zeros.
+Leakage prevention: the cancellation confirmation event is not an input feature; for churners, events at or after the first cancellation timestamp are excluded.
+Scaling: StandardScaler fitted only on active days from the training customers; zero-activity/padding days remain zero.
+Split: stratified customer-level split, 70% train / 15% validation / 15% test, random seed 42.
+Training class weights: {"0": 0.6487603305785123, "1": 2.1805555555555554}
+Important limitation: a customer without a cancellation event is labelled non-churned only within the observed dataset window; they may churn later.
+Business use: Member 2 can train a sequence model on sequence_data.npz; after inference, merge predicted churn probabilities with customer_metadata_and_splits.csv to prepare the at-risk list.
+
+Outputs are in the member1_outputs folder.
