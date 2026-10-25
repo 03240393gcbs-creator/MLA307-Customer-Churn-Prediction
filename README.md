@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Customer Churn Prediction Using Sequence Models
 
 ## MLA307 — Sequence Models
@@ -196,3 +197,44 @@ The final conclusions about model performance and the practical value of churn p
 ## 12. Reproducibility
 
 For reproducibility, retain the dataset source, document the software dependencies, use the configured random seed, and report the actual split sizes and model settings. The README, source code, generated results, and final report should describe the same experimental procedure.
+=======
+# MLA307-Customer-Churn-Prediction
+# MLA307 – Customer Churn Prediction with Sequence Models
+
+Mini project (Topic 1: Customer Churn Prediction). Predicts which music-streaming customers
+go on to cancel, from 30 days of daily activity, using Simple RNN / GRU / LSTM models and a
+logistic-regression baseline.
+
+## Dataset
+Mini Sparkify event data (`mini_sparkify_event_data.json`, Udacity Data Scientist Nanodegree).
+Source URL: <ADD VERIFIED URL>. The file is not included in this repo. Place it in the repository root.
+
+## Method (summary)
+- One prediction point per customer: first *Cancellation Confirmation* (churn = 1) or last event (churn = 0).
+- Input: 30 daily rows × 13 features, ending 1 day before the prediction point (GAP = 1). Cancellation events are removed from inputs.
+- Models: Simple RNN, GRU, LSTM (tuned) vs logistic regression. Threshold chosen on validation data (max F1).
+- Limitation: prediction points depend on each customer's own outcome (retrospective design).
+
+## Setup
+```
+pip install -r requirements.txt
+```
+
+## Run order
+1. `data_preparation/` – must contain `sequence_data.npz` (customer split and feature names; created by `prepare_data.py`).
+2. `python prepare_sequences.py` – builds `model_results/sequence_data_v2.npz`, scaler, class weights.
+3. `python train_model.py` – Simple RNN, GRU/LSTM tuning, seed check, saves `final_model.keras` and figures.
+4. `python cv.py` – 5-fold cross-validation (`cv_auc.json`).
+5. `python evaluate_model.py` – test metrics, ROC curve, confusion matrix, at-risk customer list.
+6. `python report_summary.py` – prints all report numbers and saves `pattern_plot.png`.
+
+## Outputs (`model_results/`)
+`test_metrics.csv`, `classification_report.txt`, `confusion_matrix.csv`, `roc_curves.png`,
+`training_curves.png`, `tuning_results.csv`, `seed_robustness_validation.csv`, `cv_auc.json`,
+`test_churn_predictions.csv`, `at_risk_customers_top20.csv`, `pattern_plot.png`.
+
+## Group members
+Pema Lhamo 
+Sonam Rinzin Lhendup 
+Phuntsho Rangdrol
+>>>>>>> e8f465c (Add report summary script, requirements, README)
