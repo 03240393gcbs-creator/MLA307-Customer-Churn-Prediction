@@ -2,7 +2,7 @@
 # Customer Churn Prediction Using Sequence Models
 
 ## MLA307 — Sequence Models
-**Year 2, Semester I | Mini Project**
+**Year 3, Semester I | Mini Project**
 
 ## 1. Project Overview
 
